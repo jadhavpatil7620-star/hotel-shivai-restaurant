@@ -1,0 +1,11 @@
+@use "variables" as v;
+@use "mixins" as m;
+.site-header { position:sticky; top:0; z-index:20; background:rgba(255,253,248,.96); border-bottom:1px solid v.$border; backdrop-filter:blur(8px); }
+.navbar { min-height:74px; display:flex; align-items:center; justify-content:space-between; }
+.logo { display:flex; align-items:center; gap:.6rem; font-family:v.$heading; font-size:1.25rem; font-weight:700; text-decoration:none; }
+.logo span { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:v.$accent; color:#fff; font-family:serif; }
+.nav-links { display:flex; list-style:none; gap:1.7rem; margin:0; padding:0; }
+.nav-links a { text-decoration:none; font-size:.9rem; font-weight:700; color:v.$muted; }
+.nav-links a:hover,.nav-links a.active { color:v.$accent; }
+.menu-toggle { display:none; border:0; background:none; font-size:1.6rem; }
+@include m.responsive { .menu-toggle { display:block; } .nav-links { display:none; position:absolute; left:0; right:0; top:74px; padding:1.2rem 4%; background:v.$paper; border-bottom:1px solid v.$border; flex-direction:column; } .nav-links.open { display:flex; } }
